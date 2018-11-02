@@ -1,0 +1,543 @@
+
+
+
+<ion-content padding style="overflow-y: hidden;">
+  <div class="Absolute-Center">
+    <!--<ion-scroll scrollY="true" style="width: 100%; height: 100%;">
+    <ion-row>
+      <ion-col>
+        <ion-list no-lines>
+               <ion-item>
+                   <ion-label >First Name</ion-label>
+                   <ion-input [(ngModel)]="profile.firstName" type="text"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Last Name</ion-label>
+                   <ion-input [(ngModel)]="profile.lastName"  type="text"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label>Birthday</ion-label>
+                   <ion-input [(ngModel)]="profile.bday"  type="number"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Place of Residence</ion-label>
+                   <ion-input [(ngModel)]="profile.residence"  type="text" placeholder = "Kirkland,WA"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Location of Main Shelter</ion-label>
+                   <ion-input [(ngModel)]="profile.shelter"  type="text" placeholder = "Seattle,WA"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Email</ion-label>
+                   <ion-input [(ngModel)]="profile.email"  type="email" placeholder = "jdoe@gmail.com"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Phone Number</ion-label>
+                   <ion-input [(ngModel)]="profile.number"  type="text" placeholder = "555-555-5555"></ion-input>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Are you Disabled?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.disabled"></ion-checkbox>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Are you an United States military vetern?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.vetern"></ion-checkbox>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Are you Alcoholic?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.alcholic"></ion-checkbox>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Do you smoke marijuana?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.mj"></ion-checkbox>
+               </ion-item>
+               <ion-item>
+                   <ion-label >Do you use any other substances?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.drugs"></ion-checkbox>
+               </ion-item>
+
+
+               <ion-item>
+                   <ion-label >Do you want to stay anonymous?</ion-label>
+                   <ion-checkbox [(ngModel)]="profile.Anon"></ion-checkbox>
+               </ion-item>
+       </ion-list>
+     </ion-col>
+   </ion-row>
+ </ion-scroll>
+
+       <button ion-button full color="primary" (click)="formSubmit()" >Submit</button>-->
+
+  <ion-slides direction="vertical" (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding  float-left id="form-firstName" style="color:#000000;text-align:left;">What is your first name?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.firstName"  type="text" placeholder="First Name"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-lastName" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> What is your last name?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.lastName"  type="text" placeholder="Last Name"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> How old are you?</h5>
+                <ion-item>
+                  <ion-label>Birthday</ion-label>
+                  <ion-select [(ngModel)]="profile.bday.month" interface="action-sheet">
+                    <ion-option *ngFor="let month of months" >{{month}}</ion-option>
+                  </ion-select>
+                  <ion-select [(ngModel)] = "profile.bday.day" interface="action-sheet">
+                    <ion-option *ngFor = "let day of days" >{{day}}</ion-option>
+                  </ion-select>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> What is the address of your residence?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.residence"  type="text" placeholder="Residence Address"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> What is the address of your primary shelter at the moment?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.shelter"  type="text" placeholder="Shelter Address"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you have an email we can reach you at?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.email"  type="text" placeholder="Email Address"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you have an phone number we can call you at?</h5>
+                <ion-item>
+                  <ion-input [(ngModel)]="profile.number"  type="text" placeholder="Phone Number"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="slide()"  ion-button round float-right >
+                Next
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you consume excessive amount of alcohol?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setAlcoholic(1)" (click)="slide()"  ion-button round outline  float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setAlcoholic(0)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you smoke marijuana?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setMJ(1)" (click)="slide()"  ion-button round outline  float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setMJ(0)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you use any other substances?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setDrugs(1)" (click)="slide()"  ion-button round  outline float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setDrugs(1)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Are you disabled?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setDisabled(1)" (click)="slide()"  ion-button round  outline float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setDisabled(0)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Are you a United States military vetern?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setVetern(1)" (click)="slide()"  ion-button round  outline float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setVetern(0)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Do you want to stay anonymous before you submit this survery?</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="setAnonymous(1)" (click)="slide()"  ion-button round outline float-right >
+                Yes
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;" (click)="setAnonymous(0)" (click)="slide()"  ion-button round float-right >
+                No
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+        <ion-row>
+          <ion-col>
+                <button *ngIf="backView == false" id="" (click)="slideBack()"   ion-button color="blue" clear no-padding no-margin float-left small>BACK</button>
+                <a *ngIf="menuView == true" (click)="openMenu()" id=""  style="text-align:left;" ion-button color="blue" clear no-padding no-margin float-left small>BACK</a>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col>
+              <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+                <h5 padding float-left id="form-bday" style="color:#000000;text-align:left;">{{profile.firstName}},<br><br> Thank you for filling out this survey. If you decided to remain anonymous, <br>
+                we cannot guarantee an institution reaching out to help you, but your answer to the survey will defintely have an impact on how we go about providing proper services the homeless population in general.<br><br>
+              If you are do not wish to go back and change any answer, please click Submit.</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button id="next" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  (click)="formSubmit()"  ion-button full float-right >
+                Submit
+              </button>
+            </ion-col>
+          </ion-row>
+
+      </div>
+    </ion-slide>
+
+
+
+
+
+
+  </ion-slides>
+  </div>
+</ion-content>

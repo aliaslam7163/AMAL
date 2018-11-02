@@ -1,14 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="vertical-align-content" text-center>
+<div class="Absolute-Center" style="max-width: 375px; width:100%; margin: auto; text-align: center;">
+  <ion-row >
+    <ion-col>
+        <img src="../../assets/imgs/duah-hands.png" style="width:100px;height:70px;" float-left no-padding>
+    </ion-col>
+  </ion-row>
+          <ion-row align-items-center>
+            <ion-col>
+                <h4 text-left id="home-heading23"  padding>{{greeting}}! What can I help you with?</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-center justify-content-end>
+            <ion-col >
+              <button id="home-place" (click)="foodServices()" style="width: 60% !important;text-transform:none;color:#0072BC !important;" ion-button round outline icon-left  float-right>
+              <!--  <ion-icon name="restaurant" float-left></ion-icon>-->
+                I am hungry
+              </button>
+
+            </ion-col>
+          </ion-row>
+          <ion-row  justify-content-end>
+            <ion-col>
+              <button id="home-next" (click)="openMenu()" style="width: 60% !important;text-transform:none;background-color:#0072BC !important;color:white;"  ion-button round icon-left float-right>
+              <!--  <ion-icon name="flower"></ion-icon> -->
+                Something else
+              </button>
+            </ion-col>
+          </ion-row>
+      </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-navbar>
+      <button ion-button icon-left menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title float-right style="text-align:right;">AMAL</ion-title>
+  </ion-navbar>
+</ion-footer>
